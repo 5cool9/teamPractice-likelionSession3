@@ -1,11 +1,16 @@
+let isFlipped = false; 
+
 document.getElementById("page1").addEventListener("click", function () {
-  if (this.classList.contains("flipped")) {
-    this.style.transform = "rotateY(0deg)";
-    this.style.opacity = "1";
-    this.classList.remove("flipped");
-  } else {
-    this.style.transform = "rotateY(-180deg)";
-    this.classList.add("flipped");
+  if (!isFlipped) { 
+    if (this.classList.contains("flipped")) {
+      this.style.transform = "rotateY(0deg)";
+      this.style.opacity = "1";
+      this.classList.remove("flipped");
+    } else {
+      this.style.transform = "rotateY(-180deg)";
+      this.classList.add("flipped");
+    }
+    isFlipped = true; 
   }
 });
 
@@ -22,6 +27,7 @@ document.querySelectorAll(".profileImage").forEach((img) => {
     img.src = originalSrc;
   });
 });
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
