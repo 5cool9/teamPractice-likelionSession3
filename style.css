@@ -34,6 +34,10 @@ a:hover {
 }
 
 .page {
+  background-image: url('image/page.jpg');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +63,12 @@ a:hover {
 }
 
 .page-back {
+  margin-top: 30px;
   transform: rotateY(180deg);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .main-page {
@@ -72,10 +81,6 @@ a:hover {
   transform-origin: left center;
   transition-duration: 1s;
   transition-timing-function: ease-in;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 
@@ -90,15 +95,17 @@ a:hover {
 .profile {
   display: flex;
   align-items: center;
-  margin: auto;
   flex-direction: row;
+  justify-content: space-between;
+  width: 100%;   
+  margin: 25px 0px;
 }
 
 .profileImage {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  margin-left: 0px;
+  margin-left: 20px;
 }
 
 .name-and-modal {
@@ -107,8 +114,8 @@ a:hover {
 }
 
 .profileName {
-  margin: auto 0px;
-  font-size: 18px;
+  margin: auto 100px;  
+  font-size: 20px;
   z-index: 1;
   position: relative;
   cursor: pointer;
