@@ -114,10 +114,31 @@
 
         <!-- 프로필 페이지-->
         <div class="page" id="page2">
-          <h1>아러ㅏ어라너ㅏㅓㅇ닐</h1>
-        </div>
-      </section>
+          <h1>체크리스트</h1>
+
+  <form id="checklistForm">
+    <div>
+      <label>항목 1: 나의 취미는 독서인가요?</label><br>
+      <input type="radio" name="q1" value="yes" /> 예
+      <input type="radio" name="q1" value="no" /> 아니오
     </div>
+    
+    <div>
+      <label>항목 2: 나의 좋아하는 색은 파란색인가요?</label><br>
+      <input type="radio" name="q2" value="yes" /> 예
+      <input type="radio" name="q2" value="no" /> 아니오
+    </div>
+    
+    <div>
+      <label>항목 3: 나의 직업은 개발자인가요?</label><br>
+      <input type="radio" name="q3" value="yes" /> 예
+      <input type="radio" name="q3" value="no" /> 아니오
+    </div>
+
+    <button type="submit">제출</button>
+  </form>
+
+  <div id="result"></div>
     <script src="team.js"></script>
   </body>
 </html>
