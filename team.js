@@ -58,69 +58,67 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-// 예/아니오 값을 true/false로 변환하는 함수
-function convertAnswer(answer) {
-  return answer === "yes";
-}
-
-// 유사도 계산 함수
-function calculateSimilarity(userAnswers, checklistAnswers) {
-  let matchingAnswers = 0;
-  const totalQuestions = checklistAnswers.length;
-
-  // 각 항목에 대해 비교
-  for (let i = 0; i < totalQuestions; i++) {
-    if (userAnswers[i] === checklistAnswers[i]) {
-      matchingAnswers++;
-    }
-  }
-
-  // 퍼센트 계산
-  const percentage = (matchingAnswers / totalQuestions) * 100;
-  return percentage;
-}
-
-// 가장 유사한 사람 찾기
-function findMostSimilar(answers, checklistAnswers) {
-  let maxSimilarity = -1;
-  let mostSimilarUser = "";
-
-  // 각 운영진의 답안을 비교
-  for (const [user, userAnswers] of Object.entries(answers)) {
-    const similarity = calculateSimilarity(userAnswers, checklistAnswers);
-    console.log(`${user}의 유사도: ${similarity}%`);
-
-    if (similarity > maxSimilarity) {
-      maxSimilarity = similarity;
-      mostSimilarUser = user;
-    }
-  }
-
-  return mostSimilarUser;
-}
-
-// 운영진 답안 
 const answers = {
   "김선화": [true, false, true],
   "김시원": [false, true, false],
   "최영": [true, false, true]
 };
 
-// 제출 이벤트 리스너
-document.getElementById("checklistForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // 폼이 제출되지 않도록 막음
+const userAnswers = [null, null, null];
 
-  // 사용자가 선택한 답변을 가져오기
-  const userAnswers = [
-    convertAnswer(document.querySelector('input[name="q1"]:checked')?.value),
-    convertAnswer(document.querySelector('input[name="q2"]:checked')?.value),
-    convertAnswer(document.querySelector('input[name="q3"]:checked')?.value)
-  ];
+function calculateSimilarity(user, actual) {
+  let match = 0;
+  for (let i = 0; i < user.length; i++) {
+    if (user[i] === actual[i]) match++;
+  }
+  return (match / actual.length) * 100;
+}
 
-  // 가장 유사한 운영진 찾기
-  const mostSimilarUser = findMostSimilar(answers, userAnswers);
+function findMostSimilar(userAnswers) {
+  let max = -1;
+  let name = "";
+  for (const [member, ans] of Object.entries(answers)) {
+    const sim = calculateSimilarity(userAnswers, ans);
+    if (sim > max) {
+      max = sim;
+      name = member;
+    }
+  }
+  return { name, percent: max };
+}
 
-  // 결과 출력
-  document.getElementById("result").innerText = `가장 유사한 운영진은: ${mostSimilarUser}`;
+function updateProgress() {
+  const answered = userAnswers.filter((a) => a !== null).length;
+  const progress = (answered / userAnswers.length) * 100;
+  document.getElementById("progressBar").style.width = `${progress}%`;
+}
+
+document.querySelectorAll(".select-box").forEach((box, index) => {
+  const oBtn = box.querySelector(".o-btn");
+  const xBtn = box.querySelector(".x-btn");
+
+  oBtn.addEventListener("click", () => {
+    box.classList.remove("no");
+    box.classList.add("yes");
+    userAnswers[index] = true;
+    updateProgress();
+    checkDone();
+  });
+
+  xBtn.addEventListener("click", () => {
+    box.classList.remove("yes");
+    box.classList.add("no");
+    userAnswers[index] = false;
+    updateProgress();
+    checkDone();
+  });
 });
+
+function checkDone() {
+  if (!userAnswers.includes(null)) {
+    const result = findMostSimilar(userAnswers);
+    const resultBox = document.getElementById("result");
+    resultBox.innerHTML = ` <strong>${result.name}</strong> 님과 가장 닮았어요!<br>(싱크로율: ${Math.round(result.percent)}%)`;
+    resultBox.style.display = "block";
+  }
+}

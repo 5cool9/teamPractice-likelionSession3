@@ -55,7 +55,7 @@
               <div class="name-and-modal">
                 <h3 class="profileName">김시원</h3>
 
-                <div class="profileModal modal">
+                <div class="profileModal modal"style="left: 15px">
                   <div class="modal-content2">
                     <span class="close" style="left: 15px">x</span>
                     <p><strong>✉</strong> becool509@naver.com</p>
@@ -113,31 +113,43 @@
           </div>
         </div>
 
-        <!-- 프로필 페이지-->
+        <!-- 체크리스트 페이지-->
         <div class="page" id="page2">
-          <h1>체크리스트</h1>
+          <h1>혹시 우리 같은 타입...?</h1>
 
-  <form id="checklistForm">
-    <div>
-      <label>항목 1: 나는 습관적으로 저장을 한다</label><br>
-      <input type="radio" name="q1" value="yes" /> 예
-      <input type="radio" name="q1" value="no" /> 아니오
-    </div>
-    
-    <div>
-      <label>항목 2: </label><br>
-      <input type="radio" name="q2" value="yes" /> 예
-      <input type="radio" name="q2" value="no" /> 아니오
-    </div>
-    
-    <div>
-      <label>항목 3: </label><br>
-      <input type="radio" name="q3" value="yes" /> 예
-      <input type="radio" name="q3" value="no" /> 아니오
-    </div>
-
-    <button type="submit">제출</button>
-  </form>
+          <div class="checklist-card">
+        
+            <div class="select-box" data-index="0">
+              <p>졸릴 때 코딩한 적 있다</p>
+              <div class="btn-group">
+                <button class="btn o-btn">O</button>
+                <button class="btn x-btn">X</button>
+              </div>
+            </div>
+        
+            <div class="select-box" data-index="1">
+              <p>커피 없으면 죽음</p>
+              <div class="btn-group">
+                <button class="btn o-btn">O</button>
+                <button class="btn x-btn">X</button>
+              </div>
+            </div>
+        
+            <div class="select-box" data-index="2">
+              <p>슬랙 알림 무시한 적 있다</p>
+              <div class="btn-group">
+                <button class="btn o-btn">O</button>
+                <button class="btn x-btn">X</button>
+              </div>
+            </div>
+        
+            <div class="progress-container">
+              <div class="progress-bar" id="progressBar"></div>
+            </div>
+        
+            <div id="result" class="result-box" style="display: none;"></div>
+          </div>
+        
 
   <div id="result"></div>
     <script src="team.js"></script>

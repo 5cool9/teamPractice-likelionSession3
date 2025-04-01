@@ -31,6 +31,8 @@ a:hover {
   height: 800px;
   margin-left: 250px;
   perspective: 1000px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+
 }
 
 .page {
@@ -68,6 +70,8 @@ a:hover {
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+
 }
 
 .main-page {
@@ -127,8 +131,8 @@ a:hover {
 .profileModal {
   display: none;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -50px;
+  left: -70px;
   z-index: 2;
 }
 
@@ -138,7 +142,7 @@ a:hover {
   padding: 15px;
   border-radius: .4em;
   width: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
 
@@ -182,6 +186,100 @@ a:hover {
   cursor: pointer;
 }
 
-.h3 {
-  font-family: Arial, Helvetica;
+
+
+/*체크리스트*/
+.checklist-card {
+  width: 400px;
+  margin: 40px auto;
+  font-size: 15px;
+
+}
+
+.select-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 5px 16px;
+  margin-bottom: 12px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.select-box.yes {
+  border-color: rgba(40, 197, 211, 0.531);
+  background: #9bdee0;
+  color:white;
+  font-weight: bold;
+}
+
+.select-box.no {
+  background: #f6f6f6;
+  color: #bbb;
+  border-color: #eee;
+}
+
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.o-btn {
+  background: white;
+  color: #00aabb;
+  border: 2px solid #4fc6d1;
+}
+
+.x-btn {
+  background: white;
+  color: #bbb;
+  border: 2px solid #bbb;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.progress-container {
+  background: #e0e0e0;
+  height: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #00aabb;
+  transition: width 0.4s ease;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
