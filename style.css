@@ -104,14 +104,11 @@ a:hover {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-<<<<<<< HEAD
-  margin-left: 0px;
+  margin-left: 20px;
   position: relative;
   z-index: 10;
   pointer-events: auto;
-=======
   margin-left: 20px;
->>>>>>> 85c8024c284628be2a7ed2415d6b7ef62332e545
 }
 
 .name-and-modal {

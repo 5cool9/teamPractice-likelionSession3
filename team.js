@@ -100,11 +100,11 @@ function findMostSimilar(answers, checklistAnswers) {
   return mostSimilarUser;
 }
 
-// 운영진 답안 (예시)
+// 운영진 답안 
 const answers = {
-  "운영진 1": [true, false, true],
-  "운영진 2": [false, true, false],
-  "운영진 3": [true, false, true]
+  "김선화": [true, false, true],
+  "김시원": [false, true, false],
+  "최영": [true, false, true]
 };
 
 // 제출 이벤트 리스너
