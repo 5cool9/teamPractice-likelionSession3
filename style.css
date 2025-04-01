@@ -34,10 +34,6 @@ a:hover {
 }
 
 .page {
-  background-image: url('image/page.jpg');
-  background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
@@ -63,12 +59,15 @@ a:hover {
 }
 
 .page-back {
-  margin-top: 30px;
   transform: rotateY(180deg);
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-image: url('image/page.jpg');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
 }
 
 .main-page {
