@@ -25,18 +25,20 @@ document.querySelectorAll(".profileImage").forEach((img) => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const profileImgs = document.querySelectorAll(".profileImage");
+  const profileName = document.querySelectorAll(".profileName");
   const modals = document.querySelectorAll(".profileModal");
   const closeBtns = document.querySelectorAll(".close");
 
-  profileImgs.forEach((img, index) => {
+  profileName.forEach((img, index) => {
     img.addEventListener("click", () => {
+      event.stopPropagation();
       modals[index].style.display = "block";
     });
   });
 
   closeBtns.forEach((btn, index) => {
     btn.addEventListener("click", () => {
+      event.stopPropagation();
       modals[index].style.display = "none";
     });
   });
