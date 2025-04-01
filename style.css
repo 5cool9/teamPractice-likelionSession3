@@ -1,13 +1,22 @@
-#book {
-  /*width: 200px;
-    height: 400px;*/
-  margin: 80px;
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-a{
+#book {
+  margin: 0;
+  transform: translateX(160px); 
+}
+
+
+a {
   color: rgb(255, 255, 255);
   text-decoration: none;
 }
+
 a:link {
   color: rgb(255, 255, 255);
 }
@@ -18,8 +27,8 @@ a:hover {
 
 #pageSection {
   position: relative;
-  width: 300px;
-  height: 500px;
+  width: 600px;
+  height: 800px;
   margin-left: 250px;
   perspective: 1000px;
 }
@@ -49,19 +58,25 @@ a:hover {
 
 #page2 {
   z-index: 0;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile {
   display: flex;
   align-items: center;
-  margin: 10px auto;
+  margin: auto;
+  flex-direction: row;
 }
 
 .profileImage {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   cursor: pointer;
+  margin-left:0px;
 }
 
 .name-and-modal {
@@ -70,7 +85,7 @@ a:hover {
 }
 
 .profileName {
-  margin: 0;
+  margin: auto 0px;
   font-size: 18px;
   z-index: 1;
   position: relative;
@@ -91,7 +106,7 @@ a:hover {
   border-radius: .4em;
   width: 250px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color:white;
+  color: white;
   text-align: center;
 
 }
