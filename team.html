@@ -20,7 +20,7 @@
           </div>
           <div class="page-back">
             <!-- 다음 페이지의 왼쪽 =2면-->
-            <div class="profile" style="margin-top:50px;">
+            <div class="profile" style="margin-top:60px;">
               <img
                 class="profileImage"
                 src="image/sunhwa.png"
@@ -115,12 +115,13 @@
 
         <!-- 체크리스트 페이지-->
         <div class="page" id="page2">
-          <h1>혹시 우리 같은 타입...?</h1>
+          <h1>오늘의 공부 계획은 ?</h1>
 
           <div class="checklist-card">
+
         
             <div class="select-box" data-index="0">
-              <p>졸릴 때 코딩한 적 있다</p>
+              <p>나는 과제를 계획하여 하는 스타일이다.</p>
               <div class="btn-group">
                 <button class="btn o-btn">O</button>
                 <button class="btn x-btn">X</button>
@@ -128,7 +129,7 @@
             </div>
         
             <div class="select-box" data-index="1">
-              <p>커피 없으면 죽음</p>
+              <p>나는 과제할 때 커피가 꼭 필요하다.</p>
               <div class="btn-group">
                 <button class="btn o-btn">O</button>
                 <button class="btn x-btn">X</button>
@@ -136,7 +137,15 @@
             </div>
         
             <div class="select-box" data-index="2">
-              <p>슬랙 알림 무시한 적 있다</p>
+              <p>나는 주석을 많이 다는 편이다.</p>
+              <div class="btn-group">
+                <button class="btn o-btn">O</button>
+                <button class="btn x-btn">X</button>
+              </div>
+            </div>
+
+            <div class="select-box" data-index="3">
+              <p>나는 단축키를 자주 쓰는 편이다.</p>
               <div class="btn-group">
                 <button class="btn o-btn">O</button>
                 <button class="btn x-btn">X</button>
@@ -148,10 +157,12 @@
             </div>
         
             <div id="result" class="result-box" style="display: none;"></div>
-          </div>
-        
+            <div id="result-image-container" class="hidden">
+              <img id="result-image" src="" alt="결과 이미지">
+            </div>
 
   <div id="result"></div>
+  
     <script src="team.js"></script>
   </body>
 </html>

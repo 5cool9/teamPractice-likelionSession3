@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const answers = {
-  "김선화": [true, false, true],
-  "김시원": [false, true, false],
-  "최영": [true, false, true]
+  "김선화": [true, true, true, false],
+  "김시원": [false, false, true, true],
+  "최영": [false, false, false, true]
 };
 
 const userAnswers = [null, null, null];
@@ -89,7 +89,7 @@ function findMostSimilar(userAnswers) {
 
 function updateProgress() {
   const answered = userAnswers.filter((a) => a !== null).length;
-  const progress = (answered / userAnswers.length) * 100;
+  const progress = (answered / 4) * 100;
   document.getElementById("progressBar").style.width = `${progress}%`;
 }
 
@@ -114,11 +114,45 @@ document.querySelectorAll(".select-box").forEach((box, index) => {
   });
 });
 
+let animationInterval; 
+
 function checkDone() {
-  if (!userAnswers.includes(null)) {
+  if (userAnswers.length === 4 && userAnswers.every(answer => answer !== null))  {
     const result = findMostSimilar(userAnswers);
     const resultBox = document.getElementById("result");
-    resultBox.innerHTML = ` <strong>${result.name}</strong> 님과 가장 닮았어요!<br>(싱크로율: ${Math.round(result.percent)}%)`;
+    const resultImageContainer = document.getElementById("result-image-container");
+    const resultImage = document.getElementById("result-image");
+
+    
+    resultBox.innerHTML = `<strong>${result.name}</strong> 님의 공부 계획과 가장 닮은 타입 !<br>`;
     resultBox.style.display = "block";
+
+
+    if (animationInterval) {
+      clearInterval(animationInterval);
+    }
+
+    resultImageContainer.style.display = "block";
+
+    
+    const images = {
+      "김선화": ["image/sunhwa3.png", "image/sunhwa4.png", "image/sunhwa5.png", "image/sunhwa6.png", "image/sunhwa7.png"],
+      "김시원": ["image/siwon3.png", "image/siwon4.png", "image/siwon5.png", "image/siwon6.png", "image/siwon7.png"],
+      "최영": ["image/young3.png", "image/young4.png", "image/young5.png", "image/young6.png", "image/young7.png"],
+    };
+
+    const frames = images[result.name]; 
+    let frameIndex = 0;
+
+
+    animationInterval = setInterval(() => {
+      resultImage.src = frames[frameIndex];
+      frameIndex = (frameIndex + 1) % frames.length; 
+    }, 300); 
+
+   
+    setTimeout(() => {
+      resultImageContainer.classList.add("show");
+    }, 100);
   }
 }

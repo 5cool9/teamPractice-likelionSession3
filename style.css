@@ -11,18 +11,17 @@ body {
   transform: translateX(160px);
 }
 
-
 a {
-  color: rgb(255, 255, 255);
+  color: black;
   text-decoration: none;
 }
 
 a:link {
-  color: rgb(255, 255, 255);
+  color: black;
 }
 
 a:hover {
-  color: rgb(209, 209, 209);
+  color: navy;
 }
 
 #pageSection {
@@ -121,11 +120,20 @@ a:hover {
 }
 
 .profileName {
-  margin: auto 100px;  
+  margin: auto 100px;
   font-size: 20px;
   z-index: 1;
   position: relative;
   cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 10px 17px;
+  background-color: #f1f1f1; 
+  border-radius: 15px; 
+  display: inline-block; 
 }
 
 .profileModal {
@@ -136,47 +144,52 @@ a:hover {
   z-index: 2;
 }
 
+
 .modal-content1,
 .modal-content2 {
-  background: #00aabb;
+  background:lightyellow;
   padding: 15px;
   border-radius: .4em;
   width: 250px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  color: white;
+  color: black;
   text-align: center;
 
 }
 
 /* 화살표 장식 */
 .modal-content2:after {
-  content: '';
-  position: absolute;
-  right: 3px;
+  display: none;
+  position: fixed;
   top: 50%;
-  width: 0;
-  height: 0;
-  border: 20px solid transparent;
-  border-left-color: #00aabb;
-  border-right: 0;
-  border-top: 0;
-  margin-top: -10px;
-  margin-right: -20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 300px;
+  border-radius: 12px;
+  background: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal-content1:after {
-  content: '';
-  position: absolute;
-  left: 3px;
+  display: none;
+  position: fixed;
   top: 50%;
-  width: 0;
-  height: 0;
-  border: 20px solid transparent;
-  border-right-color: #00aabb;
-  border-left: 0;
-  border-top: 0;
-  margin-top: -10px;
-  margin-left: -20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 300px;
+  border-radius: 12px;
+  background: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .close {
@@ -191,9 +204,8 @@ a:hover {
 /*체크리스트*/
 .checklist-card {
   width: 400px;
-  margin: 40px auto;
+  margin: 50px auto;
   font-size: 15px;
-
 }
 
 .select-box {
@@ -282,4 +294,24 @@ a:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+#result-image-container {
+  position: fixed; 
+  bottom: -150px; /* 처음에는 화면 아래에 숨김 */
+  left: 50%;
+  transform: translateX(-35%);
+  transition: bottom 0.5s ease-out;
+  display: none;
+}
+
+#result-image-container.show {
+  bottom: 20px; /* 부드럽게 올라오도록 설정 */
+}
+
+#result-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
 }
